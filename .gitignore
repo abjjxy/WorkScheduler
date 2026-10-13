@@ -1,0 +1,8 @@
+# 环境变量
+.env
+# 日志文件
+logs/
+__pycache__/
+*.pyc
+#虚拟环境
+.venv/

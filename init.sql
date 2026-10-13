@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS work_scheduler DEFAULT CHARACTER SET utf8mb4;
+USE work_scheduler;
+
+CREATE TABLE IF NOT EXISTS work_order (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    content VARCHAR(255) NOT NULL COMMENT '工单内容',
+    status TINYINT NOT NULL DEFAULT 0 COMMENT '0待派单 1处理中 2已完成 3失败',
+    worker_id VARCHAR(64) NULL COMMENT '分配工人',
+    retry_count INT NOT NULL DEFAULT 0 COMMENT '重试次数',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    finish_time DATETIME NULL
+);
